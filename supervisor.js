@@ -107,7 +107,7 @@ function createDept(){
     ]).then( function(response) {
 
         let values = {department_name: response.deptName,
-                      over_head_costs: parseInt(response.cost)};
+                      over_head_cost: parseInt(response.cost)};
 
         // Add department to the database.
         connection.query("INSERT INTO departments SET ?",
