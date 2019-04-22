@@ -51,8 +51,8 @@ function viewDeptSales(){
     // regardless of whether products exist in that department. Default value
     // for product_sales and total_profit to 0.
     connection.query(`SELECT d.department_id, d.department_name,
-                      d.over_head_costs, IFNULL(SUM(p.product_sales), 0) AS product_sales,
-                      IFNULL((SUM(p.product_sales) - d.over_head_costs), 0) AS total_profit
+                      d.over_head_cost, IFNULL(SUM(p.product_sales), 0) AS product_sales,
+                      IFNULL((SUM(p.product_sales) - d.over_head_cost), 0) AS total_profit
                       FROM products p
                       RIGHT OUTER JOIN departments d ON p.department_name = d.department_name
                       GROUP BY d.department_id`, (err, results) => {
@@ -61,7 +61,7 @@ function viewDeptSales(){
 
         // Create the column headers for the table.
         let header = ["department_id", "department_name",
-                      "over_head_costs", "product_sales",
+                      "over_head_cost", "product_sales",
                       "total_profit"];
         let data = [header];
 
@@ -69,7 +69,7 @@ function viewDeptSales(){
         for(var i=0; i < results.length; i++){
             data.push([results[i].department_id,
                        results[i].department_name,
-                       results[i].over_head_costs,
+                       results[i].over_head_cost,
                        results[i].product_sales,
                        results[i].total_profit]);
         }
@@ -98,8 +98,8 @@ function createDept(){
     },
     {
         type: "input",
-        name: "costs",
-        message: "Overhead costs:",
+        name: "cost",
+        message: "Overhead cost:",
         validate: function(value) {
             return isNaN(value) === true ? false : true;
         }              
@@ -107,7 +107,7 @@ function createDept(){
     ]).then( function(response) {
 
         let values = {department_name: response.deptName,
-                      over_head_costs: parseInt(response.costs)};
+                      over_head_costs: parseInt(response.cost)};
 
         // Add department to the database.
         connection.query("INSERT INTO departments SET ?",
