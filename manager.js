@@ -215,7 +215,7 @@ function addProduct(){
 
         let values = {product_name: response.prodName,
                       department_name: response.deptName,
-                      price: parseInt(response.price),
+                      price: parseFloat(response.price),
                       stock_quantity: parseInt(response.stockQty)};
 
         // Update the database.
