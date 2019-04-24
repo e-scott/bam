@@ -1,20 +1,20 @@
 # bam
 This is a Amazon like app called Bamazon. It was built using: 
-  *Node.js 
+  Node.js 
     -Inquirer
     -mysql
     -table
-  *mySQL workbench
+  mySQL workbench
   
 There are three different views you can use:
-  *Customer
+  Customer
     -Can view products
     -purchase products
-  *Manager
+  Manager
     -Can view products for sale
     -Can Add quanity to products
     -Can see if a product is low
     -can add new product
-  *Supervisor
+  Supervisor
     -Can view products by sales department
     -Create new departments
