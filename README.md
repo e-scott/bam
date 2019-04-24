@@ -1,13 +1,13 @@
 # bam
 This is a Amazon like app called Bamazon. It was built using: 
-  <ol>
+  <ul>
   <li>Node.js 
-  <li>Inquirer</li>
-  <li>mysql</li>
-  <li>table</li>
+    <li>Inquirer</li>
+    <li>mysql</li>
+    <li>table</li>
   </li>
   <li>mySQL workbench</li>
-  
+  </ul>
 There are three different views you can use:
   Customer
     -Can view products
